@@ -1,0 +1,76 @@
+<% var message, services %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ADMIN || IMD</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/styles/admin_style.css" />
+  </head>
+  <body>
+    <div id="menu-overlay"></div>
+    <div id="menu-toggle" class="closed" data-title="Menu">
+      <i class="fa fa-bars"></i>
+      <i class="fa fa-times"></i>
+    </div>
+    <header id="main-header"><%- include("components/admin-nav") %></header>
+
+    <% if (message) { %>
+    <div class="alert alert-success" role="alert"><%= message %></div>
+    <% } %>
+
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Sarlavha</th>
+          <th scope="col">Matni</th>
+          <th scope="col">Link</th>
+          <th scope="col">Rasm</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (services.length) { %> <% for(let i = 0; i < services.length; i++)
+        { %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= services[i].name %></td>
+          <td><%= services[i].text %></td>
+          <td><%= services[i].link %></td>
+          <td>
+            <img src="/uploads/<%= services[i].image %>" alt="" width="60px" />
+          </td>
+          <td>
+            <a
+              href="/admin/services/delete/<%= services[i].id %>"
+              class="btn btn-danger"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        <% } %> <% } %>
+      </tbody>
+    </table>
+
+    <a href="/admin/services/create" class="btn btn-success">Create</a>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/admin_script.js"></script>
+  </body>
+</html>

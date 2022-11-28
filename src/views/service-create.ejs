@@ -1,0 +1,69 @@
+<% var error %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ADMIN || IMD</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/styles/admin_style.css" />
+  </head>
+  <body>
+    <div id="menu-overlay"></div>
+    <div id="menu-toggle" class="closed" data-title="Menu">
+      <i class="fa fa-bars"></i>
+      <i class="fa fa-times"></i>
+    </div>
+    <header id="main-header"><%- include("components/admin-nav") %></header>
+
+    <form method="post" action="/admin/services" enctype="multipart/form-data">
+      <% if (error) { %>
+      <div class="alert alert-danger" role="alert"><%= error %></div>
+      <% } %>
+      <div class="form-group">
+        <label>Sarlavha</label>
+        <input name="name" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Matn</label>
+        <input name="text" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>link</label>
+        <input
+          name="link"
+          type="text"
+          class="form-control"
+          placeholder="https://google.com"
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input
+          name="image"
+          type="file"
+          class="form-control-file"
+          id="exampleFormControlFile1"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/admin_script.js"></script>
+  </body>
+</html>
