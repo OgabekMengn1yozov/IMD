@@ -1,3 +1,5 @@
+<% var statistics, services, thoughts, link, comments, certificates, portfolios,
+portfolios_items %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -146,22 +148,12 @@
 
     <!-- ======= Counter start ========= -->
     <section class="counter">
+      <% if(statistics) { %> <% for(let stat of statistics) { %>
       <div class="counter-item day__night-cards2">
-        <h1 class="day__night"><span>1800</span>+</h1>
-        <p>Hamkorlar</p>
+        <h1 class="day__night"><span><%= stat.count %></span>+</h1>
+        <p><%= stat.name %></p>
       </div>
-      <div class="counter-item day__night-cards2">
-        <h1 class="day__night"><span>1800</span>+</h1>
-        <p>Muvaffaqiyatli loyihalar</p>
-      </div>
-      <div class="counter-item day__night-cards2">
-        <h1 class="day__night"><span>1800</span>+</h1>
-        <p>Mijozlar</p>
-      </div>
-      <div class="counter-item day__night-cards2">
-        <h1 class="day__night"><span>1800</span>+</h1>
-        <p>Professionallar</p>
-      </div>
+      <% } %> <% } %>
     </section>
     <!-- ===== Counter finish ===== -->
 
@@ -169,148 +161,26 @@
     <section class="services" id="services">
       <h1 class="text day__night">Bizning <span>xizmatlar</span></h1>
       <div class="services-container">
+        <% if(services) { %> <% for(let service of services) { %>
         <div class="services-cards day__night-cards3">
           <div class="services-cards__top">
             <div class="services-card__img day__night-card4">
-              <img src="/images/png/Rectangle.png" alt="" />
+              <img src="/uploads/<%= service.image %>" alt="" />
             </div>
-            <h2 class="day__night">amoCRM</h2>
+            <h2 class="day__night"><%= service.name %></h2>
           </div>
 
-          <p class="day__night">
-            Biznesingizda sotuv bo'limiga qiziqish bildirgan
-            <span class="text1">har bir lid to sizdan sotib olgungacha</span>
-            bo'lgan jarayonni avtomatlashtiradifan dastur
-          </p>
+          <p class="day__night"><%= service.text %></p>
 
           <a
             class="services-btn day__night day__night-card4"
-            href="#consultation"
+            href="<%= service.link %> "
           >
             Batafsil
             <i class="fa-solid fa-angle-right"></i>
           </a>
         </div>
-
-        <div class="services-cards day__night-cards3">
-          <div class="services-cards__top">
-            <div class="services-card__img day__night-card4">
-              <img src="/images/png/Rectangle (1).png" alt="" />
-            </div>
-            <h2 class="day__night">amoCRM</h2>
-          </div>
-
-          <p class="day__night">
-            Binesingizda barcha jarayonlarni qamrab oluvchi katta dastur,
-            <span class="text2">asosan korparatsiyalar</span> uchun
-          </p>
-
-          <a
-            class="services-btn day__night day__night-card4"
-            href="#consultation"
-          >
-            Batafsil
-            <i class="fa-solid fa-angle-right"></i>
-          </a>
-        </div>
-
-        <div class="services-cards day__night-cards3">
-          <div class="services-cards__top">
-            <div class="services-card__img day__night-card4">
-              <img src="/images/png/Rectangle (2).png" alt="" />
-            </div>
-            <h2 class="day__night">Moysklad</h2>
-          </div>
-
-          <p class="day__night">
-            <span class="text1"
-              >Ishlab chiqarish, ulgurchi, yoki online magaziningizni</span
-            >
-            qo'lga olish uchun dastur
-          </p>
-
-          <a
-            class="services-btn day__night day__night-card4"
-            href="#consultation"
-          >
-            Batafsil
-            <i class="fa-solid fa-angle-right"></i>
-          </a>
-        </div>
-
-        <div class="services-cards day__night-cards3">
-          <div class="services-cards__top">
-            <div class="services-card__img day__night-card4">
-              <img src="/images/png/Rectangle (3).png" alt="" />
-            </div>
-            <h2 class="day__night">IP telefoniya</h2>
-          </div>
-
-          <p class="day__night">
-            Call centr qurib, mijozlaringizni har bir murojaltlari va
-            <span class="text1"
-              >sotuvga tasinirni oshirish uchun qo'ng'iroqlar algaritmi
-              uchun</span
-            >
-          </p>
-
-          <a
-            class="services-btn day__night day__night-card4"
-            href="#consultation"
-          >
-            Batafsil
-            <i class="fa-solid fa-angle-right"></i>
-          </a>
-        </div>
-
-        <div class="services-cards day__night-cards3">
-          <div class="services-cards__top">
-            <div class="services-card__img day__night-card4">
-              <img src="/images/png/Rectangle (4).png" alt="" />
-            </div>
-            <h2 class="day__night">Profitbase</h2>
-          </div>
-
-          <p class="day__night">
-            <span class="text1"
-              >Ishlab chiqarish, ulgurchi, yoki online magaziningizni</span
-            >
-            qo'lga olish uchun dastur
-          </p>
-
-          <a
-            class="services-btn day__night day__night-card4"
-            href="#consultation"
-          >
-            Batafsil
-            <i class="fa-solid fa-angle-right"></i>
-          </a>
-        </div>
-
-        <div class="services-cards day__night-cards3">
-          <div class="services-cards__top">
-            <div class="services-card__img day__night-card4">
-              <img src="/images/png/Rectangle (5).png    " alt="" />
-            </div>
-            <h2 class="day__night">Finiso</h2>
-          </div>
-
-          <p class="day__night">
-            Call centr qurib, mijozlaringizni har bir murojaltlari va
-            <span class="text1"
-              >sotuvga tasinirni oshirish uchun qo'ng'iroqlar algaritmi
-              uchun</span
-            >
-          </p>
-
-          <a
-            class="services-btn day__night day__night-card4"
-            href="#consultation"
-          >
-            Batafsil
-            <i class="fa-solid fa-angle-right"></i>
-          </a>
-        </div>
+        <% } %> <% } %>
       </div>
     </section>
     <!-- ====== Services finish ===== -->
@@ -354,325 +224,29 @@
       <div class="our-item">
         <div class="our-item__left">
           <ul class="our-item__left-menu day__night-cards3">
+            <% if (portfolios) { %> <% for(let i = 0; i < portfolios.length; i++) { %>
             <li class="border__classs">
-              <a onclick="activ(this)" class="day__night activ3 actives"
-                >Enterprise darajali loyihalar</a
-              >
+              <a onclick="activ(this)" class="day__night activ3 <%= i == 0 ? "actives": "" %>">
+              <%= portfolios[i].name %>
+              </a>
             </li>
-            <li class="border__classs">
-              <a onclick="activ(this)" class="day__night activ3"
-                >Enterprise darajali</a
-              >
-            </li>
-            <li class="border__classs">
-              <a onclick="activ(this)" class="day__night activ3"
-                >Enterprise darajali</a
-              >
-            </li>
-            <li class="border__classs">
-              <a onclick="activ(this)" class="day__night activ3"
-                >Enterprise darajali</a
-              >
-            </li>
-            <li class="border__classs">
-              <a onclick="activ(this)" class="day__night activ3"
-                >Enterprise darajali</a
-              >
-            </li>
-            <li class="border__classs">
-              <a onclick="activ(this)" class="day__night activ3"
-                >Enterprise darajali</a
-              >
-            </li>
+            <% } %> <% } %>
+
+            
           </ul>
         </div>
 
-        <div class="our-item__right our-item__right-black1 active">
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company</p>
-          </div>
+        <% for(let i = 0; i < portfolios_items.length; i++) { %>
+          <!-- <%= i %> -->
+          <div class="our-item__right our-item__right-black<%= i + 1 %> <%= i == 0 ? "active": "" %>">
+            <% for(let l = 0; l < portfolios_items[i].length; l ++) { %>
+              <div class="our-item__right-card day__night-cards3">
+                <img src="/uploads/<%= portfolios_items[i][l].image %>" alt="" />
+              <p class="day__night"><%= portfolios_items[i][l].name %></p>
+            </div>
+            <% } %>  
         </div>
-
-        <!-- 2 -->
-        <div class="our-item__right our-item__right-black2">
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company2</p>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="our-item__right our-item__right-black3">
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company3</p>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="our-item__right our-item__right-black4">
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company4</p>
-          </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="our-item__right our-item__right-black5">
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company5</p>
-          </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="our-item__right our-item__right-black6">
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-
-          <div class="our-item__right-card day__night-cards3">
-            <img src="/images/png/Rectangle 1131.png" alt="" />
-            <p class="day__night">Google company6</p>
-          </div>
-        </div>
+        <% } %>
       </div>
     </section>
     <!--====== Our finish ======= -->
@@ -751,45 +325,17 @@
 
       <div class="customers-item">
         <ul class="customers-item__left day__night-cards3">
+          <% if(thoughts) { %> <% for(let thought of thoughts) { %>
           <li class="border__classs">
-            <a class="day__night">Fikr 1</a>
+            <a class="day__night"><%= thought.text %> </a>
           </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 2</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 3</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 4</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 5</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 6</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 7</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 8</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 9</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 10</a>
-          </li>
-          <li class="border__classs">
-            <a class="day__night">Fikr 11</a>
-          </li>
+          <% } %> <% } %>
         </ul>
 
         <div class="customers-item__right">
           <div class="customers-cards">
             <iframe
-              src="https://www.youtube.com/embed/ob9qRQeajA0"
+              src="<%= link?.link %> "
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -804,93 +350,27 @@
     <!-- =====Owl-container start ===== -->
     <section class="owl-container">
       <div class="owl-carousel">
+        <% if(comments) { %> <% for(let comment of comments) { %>
         <div class="item">
           <div class="owl-carousel__top day__night-cards2">
-            <img src="images/png/Ellipse 468.png" alt="" />
-            <h3 class="day__night">Eshonov Fakhriyor</h3>
+            <img src="/uploads/<%= comment.image %>" alt="" />
+            <h3 class="day__night"><%= comment.name %></h3>
           </div>
 
           <div class="owl-carousel__bottom day__night-cards2">
             <p class="day__night">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s,
+              <% var m = Math.floor(comment.comment?.length / 100) %> <% for(let
+              i = 0; i < m; i++) { %> <%= comment.comment.slice(30 * i, 30 * i +
+              30) %><% } %>
             </p>
 
             <div class="owl-carousel__bottom-card">
-              <span>Biznesni avtomatizatsiyalashtirish</span>
-              <span>25.10.2022</span>
+              <span><%= comment.direction %></span>
+              <span><%= comment.date %></span>
             </div>
           </div>
         </div>
-
-        <div class="item">
-          <div class="owl-carousel__top day__night-cards2">
-            <img src="images/png/Ellipse 468.png" alt="" />
-            <h3 class="day__night">Eshonov Fakhriyor</h3>
-          </div>
-
-          <div class="owl-carousel__bottom day__night-cards2">
-            <p class="day__night">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s,
-            </p>
-
-            <div class="owl-carousel__bottom-card">
-              <span>Biznesni avtomatizatsiyalashtirish</span>
-              <span>25.10.2022</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="owl-carousel__top day__night-cards2">
-            <img src="images/png/Ellipse 468.png" alt="" />
-            <h3 class="day__night">Eshonov Fakhriyor</h3>
-          </div>
-
-          <div class="owl-carousel__bottom day__night-cards2">
-            <p class="day__night">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s,
-            </p>
-
-            <div class="owl-carousel__bottom-card">
-              <span>Biznesni avtomatizatsiyalashtirish</span>
-              <span>25.10.2022</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="owl-carousel__top day__night-cards2">
-            <img src="images/png/Ellipse 468.png" alt="" />
-            <h3 class="day__night">Eshonov Fakhriyor</h3>
-          </div>
-
-          <div class="owl-carousel__bottom day__night-cards2">
-            <p class="day__night">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s,
-            </p>
-
-            <div class="owl-carousel__bottom-card">
-              <span>Biznesni avtomatizatsiyalashtirish</span>
-              <span>25.10.2022</span>
-            </div>
-          </div>
-        </div>
+        <% } %> <% } %>
       </div>
     </section>
     <!-- =====Owl-container finish===== -->
@@ -905,47 +385,14 @@
 
       <div class="certificates-item">
         <div class="owl-carousel day__night-cards2">
+          <% if(certificates) { %> <% for(let certificate of certificates) { %>
           <div class="item">
             <div class="certificates-logo bacgClassLogo">
-              <img src="images/png/Rectangle.png" alt="" />
+              <img src="/uploads/<%= certificate.direction_image %>" alt="" />
             </div>
-            <img src="/images/jpg/image 1.png" alt="" />
+            <img src="/uploads/<%= certificate.certificate_image %>" alt="" />
           </div>
-
-          <div class="item">
-            <div class="certificates-logo bacgClassLogo">
-              <img src="images/png/Rectangle (1).png" alt="" />
-            </div>
-            <img src="/images/jpg/image 1.png" alt="" />
-          </div>
-
-          <div class="item">
-            <div class="certificates-logo bacgClassLogo">
-              <img src="images/png/Rectangle (2).png" alt="" />
-            </div>
-            <img src="/images/jpg/image 1.png" alt="" />
-          </div>
-
-          <div class="item">
-            <div class="certificates-logo bacgClassLogo">
-              <img src="images/png/Rectangle (3).png" alt="" />
-            </div>
-            <img src="/images/jpg/image 1.png" alt="" />
-          </div>
-
-          <div class="item">
-            <div class="certificates-logo bacgClassLogo">
-              <img src="images/png/Rectangle (4).png" alt="" />
-            </div>
-            <img src="/images/jpg/image 1.png" alt="" />
-          </div>
-
-          <div class="item">
-            <div class="certificates-logo bacgClassLogo">
-              <img src="images/png/Rectangle (5).png" alt="" />
-            </div>
-            <img src="/images/jpg/image 1.png" alt="" />
-          </div>
+          <% } %> <% } %>
         </div>
       </div>
 
@@ -979,12 +426,12 @@
         </div>
 
         <div class="consultation-item__right">
-          <form action="">
+          <form action="/" method="post">
             <label for="">Telefon raqamingiz</label>
-            <input type="text" value="+998" />
+            <input name="phone" type="text" value="+998" />
 
             <label for="">Ismingiz</label>
-            <input type="text" placeholder="Ismingizni kiriting" />
+            <input name="name" type="text" placeholder="Ismingizni kiriting" />
 
             <button type="submit">Yuborish</button>
           </form>

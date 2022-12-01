@@ -1,4 +1,4 @@
-<% var error, message, link, thoughts %>
+<% var error, message, category %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,59 +30,75 @@
     </div>
     <header id="main-header"><%- include("components/admin-nav") %></header>
 
-    <h2>Fikrlar</h2>
-    <hr>
+
+    <h2><%= category.name %></h2>
+    <a href="/admin/portfolios" class="btn btn-info">&laquo; Ortga</a>
 
     <% if (message) { %>
-      <div class="alert alert-success" role="alert"><%= message %></div>
+    <div class="alert alert-success" role="alert"><%= message %></div>
     <% } %>
-
-    <form method="post" action="/admin/thoughts/link">
-      <% if (error) { %>
-      <div class="alert alert-danger" role="alert"><%= error %></div>
-      <% } %>
-      <div class="form-group">
-        <label>You tube link</label>
-        <input name="link" type="text" class="form-control" value="<%= link[0].link %>" />
-      </div>
-      <button type="submit" class="btn btn-primary">Update</button>
-    </form>
-
-    <hr>
 
     <table class="table">
       <thead class="thead-light">
         <tr>
           <th scope="col">№</th>
-          <th scope="col">Fikrlar</th>
+          <th scope="col">Portfolio yo'nalishi</th>
+          <th scope="col">Rasm</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
-        <% if (thoughts.length) { %> <% for(let i = 0; i < thoughts.length; i++)
-        { %>
+        <% if (portfolios_items?.length) { %> <% for(let i = 0; i <
+        portfolios_items.length; i++) { %>
         <tr>
           <td><%= i+1 %></td>
-          <td><%= thoughts[i].text %></td>
+          <td><%= portfolios_items[i].name %></td>
           <td>
-            <a
-              href="/admin/thoughts/delete/<%= thoughts[i].id %>"
-              class="btn btn-danger"
-              >Delete</a
+            <img
+              src="/uploads/<%= portfolios_items[i].image %>"
+              alt=""
+              width="60px"
+            />
+          </td>
+          <td>
+            <form
+              method="post"
+              action="/admin/portfolios/items/<%= category.id %>"
             >
+              <input
+                name="item_id"
+                type="text"
+                class="form-control visibility: hidden"
+                value="<%= portfolios_items[i].id %>"
+              />
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
           </td>
         </tr>
         <% } %> <% } %>
       </tbody>
     </table>
 
-    <form method="post" action="/admin/thoughts">
+    <form
+      method="post"
+      action="/admin/portfolios/<%= category.id %>"
+      enctype="multipart/form-data"
+    >
       <% if (error) { %>
       <div class="alert alert-danger" role="alert"><%= error %></div>
       <% } %>
       <div class="form-group">
-        <label>Fikr qo'shish</label>
-        <input name="text" type="text" class="form-control" />
+        <label>Portfolio Category</label>
+        <input name="name" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input
+          name="image"
+          type="file"
+          class="form-control-file"
+          id="exampleFormControlFile1"
+        />
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
     </form>

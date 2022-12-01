@@ -1,3 +1,4 @@
+<% var message, certificates %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,41 +30,54 @@
     </div>
     <header id="main-header"><%- include("components/admin-nav") %></header>
 
-    <h2>Statistika</h2>
-    <hr>
+    <h2>Sertifikatlar</h2>
+    <hr />
+    <% if (message) { %>
+    <div class="alert alert-success" role="alert"><%= message %></div>
+    <% } %>
+
     <table class="table">
       <thead class="thead-light">
         <tr>
           <th scope="col">№</th>
-          <th scope="col">Nomi</th>
-          <th scope="col">Soni</th>
+          <th scope="col">Yo'nalishi</th>
+          <th scope="col">Rasmi</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
-        <% for(let i = 0; i < statistics.length; i++) { %>
-          <tr>
-            <td><%= i+1 %> </td>
-            <td><%= statistics[i].name %> </td>
-            <td><%= statistics[i].count %> </td>
-            <td><a href="/admin/delete/<%= statistics[i].id %>" class="btn btn-danger">Delete</a></td>
-          </tr>
-        <% } %>  
+        <% if (certificates.length) { %> <% for(let i = 0; i <
+        certificates.length; i++) { %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td>
+            <img
+              src="/uploads/<%= certificates[i].direction_image %>"
+              alt=""
+              width="60px"
+            />
+          </td>
+          <td>
+            <img
+              src="/uploads/<%= certificates[i].certificate_image %>"
+              alt=""
+              width="60px"
+            />
+          </td>
+          <td>
+            <a
+              href="/admin/certificate/delete/<%= certificates[i].id %>"
+              class="btn btn-danger"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        <% } %> <% } %>
       </tbody>
     </table>
 
-    <form class="form-inline" method="post" action="/admin">
-      <div class="form-group">
-        <label>Statistika nomi</label>
-        <input name="name" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Statistika soni</label>
-        <input name="count" type="text" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-success">Create</button>
-    </form>
-    <!-- partial -->
+    <a href="/admin/certificate/create" class="btn btn-success">Create</a>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="/js/admin_script.js"></script>
   </body>
