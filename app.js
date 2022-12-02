@@ -6,9 +6,14 @@ const bodyParser = require("body-parser");
 const mongo = require("./src/modules/db");
 const fileUpload = require("express-fileupload");
 const morgan = require("morgan");
+const main = require("./src/bot/main");
 const app = express();
 
 mongo();
+
+(async () => {
+  await main()
+})();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src", "views"));

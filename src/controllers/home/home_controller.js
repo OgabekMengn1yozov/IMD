@@ -1,4 +1,7 @@
 const { v4 } = require("uuid");
+const { USER_ID } = require("../../../config");
+const bot = require("../../bot/main");
+const main = require("../../bot/main");
 const certificates = require("../../models/certificate_schema");
 const comments = require("../../models/comments_schema");
 const links = require("../../models/link_schema");
@@ -54,6 +57,9 @@ module.exports = class HomeControllers {
         phone,
         read: false,
       });
+
+      // Bot send message
+      await bot.sendMessage(USER_ID, `Yangi\n\nIsm: ${name}\nTelefon: ${phone}`);
 
       res.redirect("/");
     } catch (e) {
