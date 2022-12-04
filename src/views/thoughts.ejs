@@ -43,7 +43,7 @@
       <% } %>
       <div class="form-group">
         <label>You tube link</label>
-        <input name="link" type="text" class="form-control" value="<%= link[0].link %>" />
+        <input name="link" type="text" class="form-control" value="<%= link ? link[0].link : "" %>" />
       </div>
       <button type="submit" class="btn btn-primary">Update</button>
     </form>
