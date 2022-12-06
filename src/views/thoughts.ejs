@@ -63,7 +63,7 @@
         { %>
         <tr>
           <td><%= i+1 %></td>
-          <td><%= thoughts[i].text %></td>
+          <td style="width: 100%; max-width: 100px"><p><%= thoughts[i].text %></p></td>
           <td>
             <a
               href="/admin/thoughts/delete/<%= thoughts[i].id %>"

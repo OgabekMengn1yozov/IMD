@@ -26,6 +26,9 @@ portfolios_items %>
     <link rel="stylesheet" href="/styles/responsve.css" />
   </head>
   <body id="body">
+
+    <!-- <div class="toast" id="toast"><div class="toast-body">Messages send ...</div></div>-->
+
     <!-- scroll start-->
     <a href="#logotip" class="idScroll idScroll2">
       <i class="fa-solid fa-chevron-up"></i>
@@ -359,11 +362,8 @@ portfolios_items %>
 
           <div class="owl-carousel__bottom day__night-cards2">
             <p class="day__night">
-              <% var m = Math.floor(comment.comment?.length / 100) %> <% for(let
-              i = 0; i < m; i++) { %> <%= comment.comment.slice(30 * i, 30 * i +
-              30) %><% } %>
+              <%= comment.comment %>
             </p>
-
             <div class="owl-carousel__bottom-card">
               <span><%= comment.direction %></span>
               <span><%= comment.date %></span>

@@ -11,8 +11,8 @@ const app = express();
 
 mongo();
 
-(async () => {
-  await main()
+(async () => {  
+  await main() 
 })();
 
 app.set("view engine", "ejs");
