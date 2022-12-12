@@ -45,9 +45,8 @@ router.post("/services", admin_middlewares, ServicePOST);
 router.get("/services/delete/:id", admin_middlewares, ServiceDELETE);
 // Thoughts
 router.get("/thoughts", admin_middlewares, ThoughtsGET);
-router.post("/thoughts", admin_middlewares, ThoughtsPOST);
+router.post("/thoughts/create", admin_middlewares, ThoughtsPOST);
 router.get("/thoughts/delete/:id", admin_middlewares, ThoughtsDELETE);
-router.post("/thoughts/link", admin_middlewares, LinkPOST);
 // Comments
 router.get("/comments", admin_middlewares, CommentsGET);
 router.get("/comments/create", admin_middlewares, CommentCreateGET);

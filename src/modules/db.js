@@ -5,7 +5,6 @@ const { MONGO_URL } = require("../../config");
 require("../models/services_schema");
 require("../models/statistic_schema");
 require("../models/thoughts_schema");
-require("../models/link_schema");
 require("../models/comments_schema");
 
 module.exports = async function mongo() {

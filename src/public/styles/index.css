@@ -1357,3 +1357,13 @@ html {
 
   border-radius: 4px;
 }
+
+
+
+.video1, .video2, .video3, .video4, .video5, .video6, .video7, .video8, .video9, .video10, .video11{
+    display: none;
+}
+
+.video1.activev, .video2.activev, .video3.activev, .video4.activev, .video5.activev, .video6.activev, .video7.activev, .video8.activev, .video9.activev, .video10.activev, .video11.activev {
+    display: block;
+ }

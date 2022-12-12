@@ -4,7 +4,6 @@ const bot = require("../../bot/main");
 const main = require("../../bot/main");
 const certificates = require("../../models/certificate_schema");
 const comments = require("../../models/comments_schema");
-const links = require("../../models/link_schema");
 const messages = require("../../models/message_schema");
 const portfolios_items = require("../../models/portfolios_items");
 const portfolios = require("../../models/portfolio_categories");
@@ -17,7 +16,6 @@ module.exports = class HomeControllers {
     try {
       let static_list = await statistics.find();
       let service_list = await services.find();
-      let you_tube = await links.find();
       let thought_list = await thoughts.find();
       let comment_list = await comments.find();
       let certificate_list = await certificates.find();
@@ -31,12 +29,11 @@ module.exports = class HomeControllers {
         portfolios_item_list.push(items);
       }
 
-      res.render("index", {
+      res.render("index", { 
         statistics: static_list,
         services: service_list,
         portfolios: portfolio_list,
         thoughts: thought_list,
-        link: you_tube[0],
         comments: comment_list,
         certificates: certificate_list,
         portfolios_items: portfolios_item_list,

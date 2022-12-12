@@ -10,6 +10,10 @@ const thoughtsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  link: {
+    type: String,
+    required: true,
+  },
 });
 
 const thoughts = mongoose.model("thoughts", thoughtsSchema);

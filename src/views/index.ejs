@@ -1,4 +1,4 @@
-<% var statistics, services, thoughts, link, comments, certificates, portfolios,
+<% var statistics, services, thoughts, comments, certificates, portfolios,
 portfolios_items %>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +26,6 @@ portfolios_items %>
     <link rel="stylesheet" href="/styles/responsve.css" />
   </head>
   <body id="body">
-
-    <!-- <div class="toast" id="toast"><div class="toast-body">Messages send ...</div></div>-->
 
     <!-- scroll start-->
     <a href="#logotip" class="idScroll idScroll2">
@@ -321,32 +319,26 @@ portfolios_items %>
 
     <!-- ===== Customers start======== -->
     <section class="customers">
-      <h1 class="day__night">
-        Bizning mijozlarimizni biz haqimizda
-        <span class="span text3">Fikrlari</span>
-      </h1>
+        <h1 class="day__night">Bizning mijozlarimizni biz haqimizda <span class="span text3">Fikrlari</span></h1>
 
-      <div class="customers-item">
-        <ul class="customers-item__left day__night-cards3">
-          <% if(thoughts) { %> <% for(let thought of thoughts) { %>
-          <li class="border__classs">
-            <a class="day__night"><%= thought.text %> </a>
-          </li>
-          <% } %> <% } %>
-        </ul>
+        <div class="customers-item">
+            <ul class="customers-item__left day__night-cards3">
+                <% for(let thought of thoughts) { %>
+                <li class="border__classs clicks">
+                    <a class="day__night class" onclick="videos(this)"><%= thought.text %></a>
+                </li>
+                <% } %>  
+            </ul>
 
-        <div class="customers-item__right">
-          <div class="customers-cards">
-            <iframe
-              src="<%= link?.link %> "
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+            <div class="customers-item__right">
+                <div class="customers-cards">
+                  <iframe class="video1 activev"  src="<%= thoughts[0].link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <% for(let i = 1; i < thoughts.length; i++) { %>
+                      <iframe class="video<%= i+1 %>"  src="<%= thoughts[i].link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <% } %> 
+                </div>
+            </div>
         </div>
-      </div>
     </section>
     <!-- ===== Customers finish======= -->
 

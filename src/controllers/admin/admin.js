@@ -3,7 +3,6 @@ const path = require("path");
 const services = require("../../models/services_schema");
 const statistics = require("../../models/statistic_schema");
 const thoughts = require("../../models/thoughts_schema");
-const links = require("../../models/link_schema");
 const comments = require("../../models/comments_schema");
 const certificates = require("../../models/certificate_schema");
 const portfolios = require("../../models/portfolio_categories");
@@ -138,11 +137,8 @@ module.exports = class Admin {
     try {
       let thought_list = await thoughts.find();
 
-      let link = await links.find();
-
       res.render("thoughts", {
         thoughts: thought_list,
-        link,
       });
     } catch (e) {
       console.log(e);
@@ -151,19 +147,18 @@ module.exports = class Admin {
 
   static async ThoughtsPOST(req, res) {
     try {
-      const { text } = req.body;
+      const { text, link } = req.body;
 
       await thoughts.create({
         id: v4(),
         text,
+        link,
       });
 
       let thought_list = await thoughts.find();
-      let link = await links.find();
 
       res.render("thoughts", {
         thoughts: thought_list,
-        link,
         message: "Fikr qo'shildi",
       });
     } catch (e) {
@@ -180,43 +175,13 @@ module.exports = class Admin {
       });
 
       let thoughts_list = await thoughts.find();
-      let link = await links.find();
 
       res.render("thoughts", {
         thoughts: thoughts_list,
-        link,
         message: "Muvofaqqiyatli o'chirildi",
       });
     } catch (e) {
       console.log(e);
-    }
-  }
-
-  static async LinkPOST(req, res) {
-    try {
-      let { link } = req.body;
-
-      let link_list = await links.find();
-
-      if (!link_list[0]) {
-        await links.create({
-          id: v4(),
-          link,
-        });
-      } else {
-        await links.findOneAndUpdate(
-          {
-            id: link_list[0].id,
-          },
-          {
-            link,
-          }
-        );
-      }
-
-      res.redirect("/admin/thoughts");
-    } catch (e) {
-      console.log(e + "");
     }
   }
 

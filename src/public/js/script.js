@@ -228,7 +228,7 @@ function activ(a) {
   a.classList.add("actives");
 }
 
-activ3[0].addEventListener("click", () => {
+activ3[0]?.addEventListener("click", () => {
   our__item__right__black1.classList.add("active");
   our__item__right__black2.classList.remove("active");
   our__item__right__black3.classList.remove("active");
@@ -237,7 +237,7 @@ activ3[0].addEventListener("click", () => {
   our__item__right__black6.classList.remove("active");
 });
 
-activ3[1].addEventListener("click", () => {
+activ3[1]?.addEventListener("click", () => {
   our__item__right__black1.classList.remove("active");
   our__item__right__black2.classList.add("active");
   our__item__right__black3.classList.remove("active");
@@ -246,7 +246,7 @@ activ3[1].addEventListener("click", () => {
   our__item__right__black6.classList.remove("active");
 });
 
-activ3[2].addEventListener("click", () => {
+activ3[2]?.addEventListener("click", () => {
   our__item__right__black1.classList.remove("active");
   our__item__right__black2.classList.remove("active");
   our__item__right__black3.classList.add("active");
@@ -255,7 +255,7 @@ activ3[2].addEventListener("click", () => {
   our__item__right__black6.classList.remove("active");
 });
 
-activ3[3].addEventListener("click", () => {
+activ3[3]?.addEventListener("click", () => {
   our__item__right__black1.classList.remove("active");
   our__item__right__black2.classList.remove("active");
   our__item__right__black3.classList.remove("active");
@@ -264,7 +264,7 @@ activ3[3].addEventListener("click", () => {
   our__item__right__black6.classList.remove("active");
 });
 
-activ3[4].addEventListener("click", () => {
+activ3[4]?.addEventListener("click", () => {
   our__item__right__black1.classList.remove("active");
   our__item__right__black2.classList.remove("active");
   our__item__right__black3.classList.remove("active");
@@ -273,11 +273,188 @@ activ3[4].addEventListener("click", () => {
   our__item__right__black6.classList.remove("active");
 });
 
-activ3[5].addEventListener("click", () => {
+activ3[5]?.addEventListener("click", () => {
   our__item__right__black1.classList.remove("active");
   our__item__right__black2.classList.remove("active");
   our__item__right__black3.classList.remove("active");
   our__item__right__black4.classList.remove("active");
   our__item__right__black5.classList.remove("active");
   our__item__right__black6.classList.add("active");
+});
+
+
+let clicks = document.querySelectorAll(".clicks");
+let activClass = document.querySelectorAll(".customers-item__left li a");
+function videos(m) {
+  for (let i = 0; i < activClass.length; i++) {
+    activClass[i].classList.remove("class");
+  }
+
+  m.classList.add("class");
+}
+
+let video1 = document.querySelector(".video1");
+let video2 = document.querySelector(".video2");
+let video3 = document.querySelector(".video3");
+let video4 = document.querySelector(".video4");
+let video5 = document.querySelector(".video5");
+let video6 = document.querySelector(".video6");
+let video7 = document.querySelector(".video7");
+let video8 = document.querySelector(".video8");
+let video9 = document.querySelector(".video9");
+let video10 = document.querySelector(".video10");
+let video11 = document.querySelector(".video11");
+
+clicks[0].addEventListener("click", () => {
+  video1.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[1].addEventListener("click", () => {
+  video2.classList.add("activev");
+  video1.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[2].addEventListener("click", () => {
+  video3.classList.add("activev");
+  video2.classList.remove("activev");
+  video1.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[3].addEventListener("click", () => {
+  video4.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video1.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[4].addEventListener("click", () => {
+  video5.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video1.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[5].addEventListener("click", () => {
+  video6.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video1.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[6].addEventListener("click", () => {
+  video7.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video1.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[7].addEventListener("click", () => {
+  video8.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video1.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[8].addEventListener("click", () => {
+  video9.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video1.classList.remove("activev");
+  video10.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[9].addEventListener("click", () => {
+  video10.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video1.classList.remove("activev");
+  video11.classList.remove("activev");
+});
+
+clicks[10].addEventListener("click", () => {
+  video11.classList.add("activev");
+  video2.classList.remove("activev");
+  video3.classList.remove("activev");
+  video4.classList.remove("activev");
+  video5.classList.remove("activev");
+  video6.classList.remove("activev");
+  video7.classList.remove("activev");
+  video8.classList.remove("activev");
+  video9.classList.remove("activev");
+  video10.classList.remove("activev");
+  video1.classList.remove("activev");
 });

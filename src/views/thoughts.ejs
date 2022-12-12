@@ -37,24 +37,12 @@
       <div class="alert alert-success" role="alert"><%= message %></div>
     <% } %>
 
-    <form method="post" action="/admin/thoughts/link">
-      <% if (error) { %>
-      <div class="alert alert-danger" role="alert"><%= error %></div>
-      <% } %>
-      <div class="form-group">
-        <label>You tube link</label>
-        <input name="link" type="text" class="form-control" value="<%= link ? link[0].link : "" %>" />
-      </div>
-      <button type="submit" class="btn btn-primary">Update</button>
-    </form>
-
-    <hr>
-
     <table class="table">
       <thead class="thead-light">
         <tr>
           <th scope="col">№</th>
           <th scope="col">Fikrlar</th>
+          <th scope="col">Link</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
@@ -63,7 +51,8 @@
         { %>
         <tr>
           <td><%= i+1 %></td>
-          <td style="width: 100%; max-width: 100px"><p><%= thoughts[i].text %></p></td>
+          <td style="width: 20%; max-width: 100px"><p><%= thoughts[i].text %></p></td>
+          <td style="width: 50%; max-width: 100px"><a href="<%= thoughts[i].link %>"><%= thoughts[i].link %></a></td>
           <td>
             <a
               href="/admin/thoughts/delete/<%= thoughts[i].id %>"
@@ -75,14 +64,19 @@
         <% } %> <% } %>
       </tbody>
     </table>
-
-    <form method="post" action="/admin/thoughts">
+    <hr>
+    <h3>Fikr qo'shish</h3>
+    <form method="post" action="/admin/thoughts/create">
       <% if (error) { %>
       <div class="alert alert-danger" role="alert"><%= error %></div>
       <% } %>
       <div class="form-group">
-        <label>Fikr qo'shish</label>
+        <label>Fikr</label>
         <input name="text" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>You tube link</label>
+        <input name="link" type="text" class="form-control" />
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
     </form>
