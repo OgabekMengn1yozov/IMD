@@ -29,7 +29,7 @@ module.exports = class HomeControllers {
         portfolios_item_list.push(items);
       }
 
-      res.render("index", { 
+      res.render("index", {
         statistics: static_list,
         services: service_list,
         portfolios: portfolio_list,
@@ -40,7 +40,7 @@ module.exports = class HomeControllers {
       });
     } catch (e) {
       console.log(e);
-      res.render("404")
+      res.render("404");
     }
   }
 
@@ -56,12 +56,15 @@ module.exports = class HomeControllers {
       });
 
       // Bot send message
-      await bot.sendMessage(USER_ID, `Yangi\n\nIsm: ${name}\nTelefon: ${phone}`);
+      await bot.sendMessage(
+        USER_ID,
+        `Yangi\n\nIsm: ${name}\nTelefon: ${phone}`
+      );
 
       res.redirect("/");
     } catch (e) {
       console.log(e);
-      res.render("404");
+      res.redirect("/");
     }
   }
 };
