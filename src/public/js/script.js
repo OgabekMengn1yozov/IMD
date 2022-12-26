@@ -458,3 +458,4 @@ clicks[10].addEventListener("click", () => {
   video10.classList.remove("activev");
   video1.classList.remove("activev");
 });
+

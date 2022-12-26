@@ -9,11 +9,11 @@ const morgan = require("morgan");
 const main = require("./src/bot/main");
 const app = express();
 
-mongo();
+mongo(); 
 
-(async () => {  
-  await main() 
-})();
+// (async () => {    
+//   await main() 
+// })();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src", "views"));
