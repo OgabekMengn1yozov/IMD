@@ -8,18 +8,31 @@ const fileUpload = require("express-fileupload");
 const morgan = require("morgan");
 const main = require("./src/bot/main");
 const app = express();
+const compression = require("compression");
 
-mongo(); 
+mongo();
 
-// (async () => {    
-//   await main() 
-// })();
+(async () => {
+  await main()
+})();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src", "views"));
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "src", "public")));
+app.use(
+  compression({
+    level: 6,
+    threshold: 100 * 1000,
+    filter: (req, res) => {
+      if (req.headers["x-no-compression"]) {
+        return false;
+      }
+      return compression.filter(req, res);
+    },
+  })
+);
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(fileUpload());
 app.use(morgan("tiny"));
