@@ -1,4 +1,3 @@
-console.log(true)
 $("#menu-toggle,#menu-overlay").click(function () {
   $("body").toggleClass("open-menu");
 });

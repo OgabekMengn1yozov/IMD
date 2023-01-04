@@ -12,9 +12,9 @@ const compression = require("compression");
 
 mongo();
 
-(async () => {
-  await main()
-})();
+// (async () => {
+//   await main() 
+// })();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src", "views"));
